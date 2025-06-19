@@ -1,0 +1,5 @@
+# Ignorar a pasta de módulos do Node
+node_modules
+
+# Ignorar o arquivo de variáveis de ambiente (contém senhas!)
+.env
