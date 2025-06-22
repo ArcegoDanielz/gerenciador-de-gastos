@@ -67,3 +67,54 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 ```bash
 git clone [https://github.com/ArcegoDanielz/gerenciador-de-gastos](https://github.com/ArcegoDanielz/gerenciador-de-gastos.git)
 cd gerenciador-de-gastos
+2. Configure o Backend
+Abra um primeiro terminal.
+<!-- end list -->
+
+Bash
+
+# Navegue para a pasta do backend
+cd backend
+
+# Instale as dependências
+npm install
+
+# Crie um arquivo .env na raiz do backend e configure suas variáveis de ambiente
+# Use o .env.example como base
+Configure seu banco de dados gerenciador_db e a tabela transacoes.
+<!-- end list -->
+
+Bash
+
+# Rode o servidor do backend
+npm run dev
+O servidor backend estará rodando na porta 3001.
+
+3. Configure o Frontend
+Abra um segundo terminal, separado do primeiro.
+<!-- end list -->
+
+Bash
+
+# A partir da pasta raiz do projeto, navegue para o frontend
+cd frontend
+
+# Instale as dependências
+npm install
+
+# Rode a aplicação React
+npm start
+A aplicação frontend abrirá automaticamente em seu navegador no endereço http://localhost:3000.
+
+🔌 Estrutura da API (Endpoints)
+Método	Rota	Descrição
+POST	/transacoes	Cria uma nova transação.
+GET	/transacoes	Lista todas as transações.
+GET	/resumo	Retorna o resumo (entradas, saídas, balanço).
+GET	/gastos-por-categoria	Retorna os gastos totais por categoria.
+PUT	/transacoes/:id	Atualiza uma transação existente.
+DELETE	/transacoes/:id	Deleta uma transação existente.
+
+Exportar para as Planilhas
+👨‍💻 Autor
+Feito por [Daniel Arcego Babicz]
