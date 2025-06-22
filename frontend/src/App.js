@@ -4,11 +4,14 @@ import axios from 'axios';
 // Importa os nossos dois componentes filhos
 import TransactionForm from './TransactionForm';
 import ResumoFinanceiro from './ResumoFinanceiro'; // <-- Importa o novo componente
+import GraficoGastos from './GraficoGastos';
 import './App.css';
+
 
 function App() {
   const [transacoes, setTransacoes] = useState([]);
   const [resumo, setResumo] = useState(null); // <-- NOVO ESTADO: para guardar o resumo, começa como nulo.
+  const [dadosGrafico, setDadosGrafico] = useState([]); // <-- 2. CRIE O ESTADO PARA OS DADOS DO GRÁFICO
 
   // Função para buscar a lista de transações
   const buscarTransacoes = async () => {
@@ -29,17 +32,28 @@ function App() {
       console.error("Erro ao buscar resumo:", error);
     }
   };
+    // 3. CRIAR A FUNÇÃO PARA BUSCAR OS DADOS DO GRÁFICO
+  const buscarDadosGrafico = async () => {
+    try {
+      const resposta = await axios.get('http://localhost:3001/gastos-por-categoria');
+      setDadosGrafico(resposta.data);
+    } catch (error) {
+      console.error("Erro ao buscar dados para o gráfico:", error);
+    }
+  };
 
   // O useEffect agora buscará tanto as transações quanto o resumo quando a página carregar.
   useEffect(() => {
     buscarTransacoes();
     buscarResumo();
+     buscarDadosGrafico();
   }, []);
 
   // Função para lidar com a adição de uma nova transação
   const handleTransactionAdded = () => {
     buscarTransacoes(); // Atualiza a lista
     buscarResumo();     // <-- IMPORTANTE: Atualiza o resumo também!
+    buscarDadosGrafico();
   };
   
   // Função para lidar com a exclusão de uma transação
@@ -49,6 +63,7 @@ function App() {
         await axios.delete(`http://localhost:3001/transacoes/${id}`);
         buscarTransacoes(); // Atualiza a lista
         buscarResumo();     // <-- IMPORTANTE: Atualiza o resumo também!
+        buscarDadosGrafico();
       } catch (error) {
         console.error('Erro ao excluir transação:', error);
         alert('Ocorreu um erro ao tentar excluir a transação.');
@@ -63,6 +78,9 @@ function App() {
 
         {/* Renderiza o componente de Resumo, passando os dados do resumo como prop */}
         <ResumoFinanceiro resumo={resumo} />
+        
+         {/* ADICIONA O COMPONENTE DO GRÁFICO */}
+        <GraficoGastos dados={dadosGrafico} />
 
         {/* Passamos a nova função handleTransactionAdded para o formulário */}
         <TransactionForm onTransactionAdded={handleTransactionAdded} />
