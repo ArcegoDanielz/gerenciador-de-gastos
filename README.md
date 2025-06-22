@@ -12,7 +12,7 @@ Este é um projeto Fullstack de um Gerenciador de Gastos Pessoais. A aplicação
 
 *(Aqui você pode adicionar os screenshots da sua aplicação, como aquele que você me enviou!)*
 
-![Dashboard do Gerenciador de Gastos](https://i.imgur.com/x4s3mNn.png) 
+![alt text](image.png)
 
 ---
 
