@@ -5,6 +5,7 @@ require('dotenv').config();
 
 // Importa o framework Express
 const express = require('express');
+const cors = require('cors');
 
 // Importa o driver do MySQL/MariaDB
 const mysql = require('mysql2');
@@ -15,6 +16,7 @@ const app = express();
 // Este é um "middleware". Uma ferramenta que ajuda o Express.
 // Ele "ensina" o Express a ler e entender o formato JSON que virá no corpo das requisições.
 app.use(express.json());
+app.use(cors());
 
 // Define a porta do servidor, pegando do .env ou usando 3001 como padrão
 const PORT = process.env.PORT || 3001;
