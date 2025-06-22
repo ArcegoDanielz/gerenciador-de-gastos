@@ -36,3 +36,82 @@
     transform: rotate(360deg);
   }
 }
+/* Estilos para o container do resumo */
+.resumo-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 800px;
+  margin: 20px 0;
+  gap: 15px;
+}
+
+/* Estilos para cada card do resumo */
+.resumo-card {
+  background-color: #444;
+  padding: 15px;
+  border-radius: 8px;
+  flex: 1;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.resumo-card h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+  color: #bbb;
+}
+
+.resumo-card p {
+  margin-bottom: 0;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Cores específicas para cada card */
+#entradas p {
+  color: #4CAF50; /* Verde */
+}
+
+#saidas p {
+  color: #f44336; /* Vermelho */
+}
+
+#balanco p {
+  color: #2196F3; /* Azul */
+}
+
+/* Estilos para o formulário */
+.transaction-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 8px;
+}
+
+.transaction-form input,
+.transaction-form select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #444;
+  color: white;
+}
+
+.transaction-form button {
+  padding: 8px 15px;
+  border-radius: 4px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.transaction-form button:hover {
+  background-color: #0056b3;
+}
