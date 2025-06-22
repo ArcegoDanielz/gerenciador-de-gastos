@@ -10,8 +10,6 @@ Este é um projeto Fullstack de um Gerenciador de Gastos Pessoais. A aplicação
 
 ## 📸 Visualização
 
-*(Aqui você pode adicionar os screenshots da sua aplicação, como aquele que você me enviou!)*
-
 ![alt text](image.png)
 
 ---
